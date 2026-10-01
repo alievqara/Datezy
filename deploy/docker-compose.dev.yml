@@ -1,0 +1,30 @@
+services:
+  datezy-postgres:
+    image: postgres:18-alpine
+    container_name: datezy-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-datezy}
+      POSTGRES_USER: ${POSTGRES_USER:-datezy}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-datezy_dev_password}
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - datezy_postgres_data:/var/lib/postgresql
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-datezy} -d ${POSTGRES_DB:-datezy}"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  datezy_postgres_data:

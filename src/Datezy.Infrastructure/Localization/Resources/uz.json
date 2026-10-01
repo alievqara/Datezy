@@ -1,0 +1,13 @@
+{
+  "Common": {
+    "Back": "⬅️ Orqaga",
+    "Cancel": "❌ Bekor qilish",
+    "Confirm": "✅ Tasdiqlash"
+  },
+  "Registration": {
+    "Language": {
+      "Title": "🌍 Tilni tanlang",
+      "Changed": "✅ Til {0} tiliga o‘zgartirildi."
+    }
+  }
+}

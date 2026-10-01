@@ -1,0 +1,13 @@
+{
+  "Common": {
+    "Back": "⬅️ Geri",
+    "Cancel": "❌ İptal",
+    "Confirm": "✅ Onayla"
+  },
+  "Registration": {
+    "Language": {
+      "Title": "🌍 Dilinizi seçin",
+      "Changed": "✅ Dil {0} olarak değiştirildi."
+    }
+  }
+}

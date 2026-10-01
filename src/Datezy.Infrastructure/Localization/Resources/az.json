@@ -1,0 +1,13 @@
+{
+  "Common": {
+    "Back": "⬅️ Geri",
+    "Cancel": "❌ Ləğv et",
+    "Confirm": "✅ Təsdiqlə"
+  },
+  "Registration": {
+    "Language": {
+      "Title": "🌍 Dilinizi seçin",
+      "Changed": "✅ Dil {0} olaraq dəyişdirildi."
+    }
+  }
+}

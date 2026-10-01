@@ -1,0 +1,13 @@
+{
+  "Common": {
+    "Back": "⬅️ Zurück",
+    "Cancel": "❌ Abbrechen",
+    "Confirm": "✅ Bestätigen"
+  },
+  "Registration": {
+    "Language": {
+      "Title": "🌍 Wähle deine Sprache",
+      "Changed": "✅ Sprache wurde auf {0} geändert."
+    }
+  }
+}

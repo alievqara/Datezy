@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Datezy.Api/Datezy.Api.csproj" />
+    <Project Path="src/Datezy.Application/Datezy.Application.csproj" />
+    <Project Path="src/Datezy.Contracts/Datezy.Contracts.csproj" />
+    <Project Path="src/Datezy.Domain/Datezy.Domain.csproj" />
+    <Project Path="src/Datezy.Infrastructure/Datezy.Infrastructure.csproj" />
+    <Project Path="src/Datezy.Persistence/Datezy.Persistence.csproj" />
+    <Project Path="src/Datezy.Shared/Datezy.Shared.csproj" />
+    <Project Path="src/Datezy.Worker/Datezy.Worker.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Datezy.Application.Tests/Datezy.Application.Tests.csproj" />
+    <Project Path="tests/Datezy.ArchitectureTests/Datezy.ArchitectureTests.csproj" />
+    <Project Path="tests/Datezy.Domain.Tests/Datezy.Domain.Tests.csproj" />
+    <Project Path="tests/Datezy.IntegrationTests/Datezy.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

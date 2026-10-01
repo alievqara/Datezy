@@ -1,0 +1,13 @@
+{
+  "Common": {
+    "Back": "⬅️ Հետ",
+    "Cancel": "❌ Չեղարկել",
+    "Confirm": "✅ Հաստատել"
+  },
+  "Registration": {
+    "Language": {
+      "Title": "🌍 Ընտրեք լեզուն",
+      "Changed": "✅ Լեզուն փոխվել է՝ {0}։"
+    }
+  }
+}
