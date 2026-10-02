@@ -1,7 +1,9 @@
-﻿using Datezy.Application.Localization;
+﻿using Datezy.Application.Common.Abstractions;
+using Datezy.Application.Localization;
 using Datezy.Infrastructure.Localization;
 using Datezy.Infrastructure.Localization.Configuration;
 using Datezy.Infrastructure.Telegram;
+using Datezy.Infrastructure.Time;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -43,6 +45,8 @@ public static class DependencyInjection
         services.AddSingleton<
             ILocalizer,
             JsonLocalizer>();
+
+        services.AddSingleton<IClock, SystemClock>();
 
         services.AddTelegram(configuration);
 
