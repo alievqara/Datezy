@@ -1,16 +1,42 @@
+using Datezy.Infrastructure.Telegram.Updates;
+
 namespace Datezy.Worker;
 
-public class Worker(ILogger<Worker> logger) : BackgroundService
+public sealed class Worker : BackgroundService
 {
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    private readonly TelegramUpdateReceiver _telegramUpdateReceiver;
+    private readonly ILogger<Worker> _logger;
+
+    public Worker(
+        TelegramUpdateReceiver telegramUpdateReceiver,
+        ILogger<Worker> logger)
     {
-        while (!stoppingToken.IsCancellationRequested)
+        _telegramUpdateReceiver = telegramUpdateReceiver;
+        _logger = logger;
+    }
+
+    protected override async Task ExecuteAsync(
+        CancellationToken stoppingToken)
+    {
+        _logger.LogInformation(
+            "Datezy Worker is starting.");
+
+        await _telegramUpdateReceiver.RunAsync(
+            stoppingToken);
+
+        try
         {
-            if (logger.IsEnabled(LogLevel.Information))
-            {
-                logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            }
-            await Task.Delay(1000, stoppingToken);
+            await Task.Delay(
+                Timeout.Infinite,
+                stoppingToken);
         }
+        catch (OperationCanceledException)
+            when (stoppingToken.IsCancellationRequested)
+        {
+            // Expected during graceful shutdown.
+        }
+
+        _logger.LogInformation(
+            "Datezy Worker is stopping.");
     }
 }

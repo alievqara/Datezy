@@ -1,6 +1,7 @@
 ﻿using Datezy.Application.Localization;
 using Datezy.Infrastructure.Localization;
 using Datezy.Infrastructure.Localization.Configuration;
+using Datezy.Infrastructure.Telegram;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +13,9 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        ArgumentNullException.ThrowIfNull(services);
+        ArgumentNullException.ThrowIfNull(configuration);
+
         services
             .AddOptions<LocalizationOptions>()
             .Bind(
@@ -28,11 +32,19 @@ public static class DependencyInjection
                 "At least one localization language is required.")
             .ValidateOnStart();
 
-        services.AddSingleton<ILanguageCatalog, LanguageCatalog>();
+        services.AddSingleton<
+            ILanguageCatalog,
+            LanguageCatalog>();
 
-        services.AddSingleton<ILanguageResolver, LanguageResolver>();
+        services.AddSingleton<
+            ILanguageResolver,
+            LanguageResolver>();
 
-        services.AddSingleton<ILocalizer, JsonLocalizer>();
+        services.AddSingleton<
+            ILocalizer,
+            JsonLocalizer>();
+
+        services.AddTelegram(configuration);
 
         return services;
     }
