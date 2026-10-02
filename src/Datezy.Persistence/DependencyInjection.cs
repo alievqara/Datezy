@@ -1,4 +1,6 @@
+using Datezy.Application.Common.Abstractions.Persistence;
 using Datezy.Persistence.Contexts;
+using Datezy.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +41,14 @@ public static class DependencyInjection
                             maxRetryCount: 5);
                     });
             });
+
+        services.AddScoped<IUserRepository, UserRepository>();
+
+        services.AddScoped<
+            IRegistrationSessionRepository,
+            RegistrationSessionRepository>();
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

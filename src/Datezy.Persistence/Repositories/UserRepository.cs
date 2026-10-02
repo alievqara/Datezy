@@ -24,6 +24,16 @@ public sealed class UserRepository : IUserRepository
                 cancellationToken);
     }
 
+    public Task<User?> GetByIdAsync(
+    Guid userId,
+    CancellationToken cancellationToken = default)
+    {
+        return _dbContext.Users
+            .SingleOrDefaultAsync(
+                user => user.Id == userId,
+                cancellationToken);
+    }
+
     public void Add(User user)
     {
         ArgumentNullException.ThrowIfNull(user);
